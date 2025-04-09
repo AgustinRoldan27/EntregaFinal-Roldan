@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Perfil de {{ user.username }}</h2>
+  <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+  <p>Correo electrónico: {{ user.email }}</p>
+  {% if profile.bio %}
+    <p>Biografía: {{ profile.bio }}</p>
+  {% endif %}
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar de {{ user.username }}" width="100">
+  {% endif %}
+  <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
+{% endblock %}
