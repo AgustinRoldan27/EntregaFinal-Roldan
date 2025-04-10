@@ -1,0 +1,28 @@
+<hr>
+
+  <h3>Comentarios</h3>
+  {% if comments %}
+    <ul>
+      {% for comment in comments %}
+        <li>
+          <strong>{{ comment.author.username }}</strong> dijo el {{ comment.created_on }}:
+          <p>{{ comment.body }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay comentarios aún.</p>
+  {% endif %}
+
+  <hr>
+
+  {% if user.is_authenticated %}
+    <h3>Deja un comentario</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <button type="submit">Publicar comentario</button>
+    </form>
+  {% else %}
+    <p>Debes <a href="{% url 'login' %}">iniciar sesión</a> para dejar un comentario.</p>
+  {% endif %}

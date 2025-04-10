@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        .content {
+            margin-bottom: 40px;
+        }
+        footer {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="{% url 'pages:about' %}">Acerca de</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profiles:profile' %}">Perfil</a>
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar Sesión</a>
+            <a href="{% url 'register' %}">Registrarse</a>
+        {% endif %}
+    </nav>
+
+    <div class="content">
+        {% block content %}
+            {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Mi Blog</p>
+    </footer>
+</body>
+</html>
