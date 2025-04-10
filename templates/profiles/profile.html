@@ -2,13 +2,26 @@
 
 {% block content %}
   <h2>Perfil de {{ user.username }}</h2>
-  <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
-  <p>Correo electrónico: {{ user.email }}</p>
-  {% if profile.bio %}
-    <p>Biografía: {{ profile.bio }}</p>
+  <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+  <p><strong>Correo electrónico:</strong> {{ user.email }}</p>
+
+  {% if profile %}
+    {% if profile.avatar %}
+      <p><strong>Avatar:</strong></p>
+      <img src="{{ profile.avatar.url }}" alt="Avatar de {{ user.username }}" width="150">
+    {% endif %}
+    {% if profile.bio %}
+      <p><strong>Biografía:</strong> {{ profile.bio }}</p>
+    {% endif %}
+    {% if profile.birth_date %}
+      <p><strong>Fecha de nacimiento:</strong> {{ profile.birth_date }}</p>
+    {% endif %}
+    {% if profile.website %}
+      <p><strong>Sitio web:</strong> <a href="{{ profile.website }}">{{ profile.website }}</a></p>
+    {% endif %}
   {% endif %}
-  {% if profile.avatar %}
-    <img src="{{ profile.avatar.url }}" alt="Avatar de {{ user.username }}" width="100">
-  {% endif %}
+
+  <p><a href="{% url 'profiles:edit_profile' %}" class="btn btn-primary">Editar Perfil</a></p>
+  <p><a href="{% url 'accounts:change_password' %}" class="btn btn-warning">Cambiar Contraseña</a></p>
   <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
 {% endblock %}

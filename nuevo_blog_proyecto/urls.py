@@ -6,5 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('profiles/', include('profiles.urls')),
-    path('', blog_views.home, name='home'),  # Asigna la raíz a la vista 'home' de 'blog'
+    path('blog/', include('blog.urls')),  # Incluye las URLs de la app 'blog' bajo la ruta '/blog/'
+    path('', blog_views.home, name='home'),  # Tu vista 'home' sigue en la raíz
 ]
