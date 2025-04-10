@@ -1,55 +1,56 @@
 # EntregaFinal-Roldan
 
-[Una frase concisa que describa tu proyecto. Por ejemplo: "Plataforma web para [propósito principal del proyecto]".]
+Plataforma web para la gestión de contenido con blog, páginas estáticas, sistema de usuarios y perfiles.
 
 ## Descripción del Proyecto
 
-[Aquí puedes proporcionar una descripción más detallada de tu proyecto. ¿Cuál es su objetivo? ¿Qué problema resuelve? ¿Cuáles son sus características principales? Sé claro y conciso.]
+Este proyecto es una aplicación web desarrollada con Django que ofrece un sistema completo para la gestión de contenido. Permite la creación y visualización de publicaciones de blog dinámicas, así como la administración de páginas estáticas. Además, incorpora un sistema de autenticación de usuarios con perfiles personalizables y la funcionalidad de comentarios en las publicaciones del blog.
 
 ## Cómo Funciona
 
-[Explica brevemente cómo funciona tu proyecto desde la perspectiva del usuario final. ¿Cuáles son los pasos básicos para interactuar con él? ¿Qué funcionalidades principales puede utilizar el usuario?]
+La plataforma ofrece las siguientes funcionalidades principales:
+
+* **Navegación Pública:** Los usuarios pueden explorar las publicaciones del blog en la página de inicio y acceder a las páginas estáticas a través de un listado.
+* **Visualización de Contenido:** Cada publicación del blog tiene su propia página de detalle, y las páginas estáticas muestran información específica.
+* **Autenticación de Usuarios:** Los usuarios pueden registrarse, iniciar sesión y cerrar sesión para acceder a funcionalidades adicionales.
+* **Gestión de Usuarios (Perfil):** Los usuarios registrados pueden ver y editar su perfil, incluyendo información personal y la posibilidad de cambiar su contraseña.
+* **Comentarios:** Los usuarios autenticados pueden dejar comentarios en las publicaciones del blog, fomentando la interacción.
+* **Administración de Contenido:** Los administradores (a través del panel de administración de Django) tienen control total sobre la creación, edición y eliminación de páginas estáticas. Usuarios autorizados también pueden gestionar las publicaciones del blog desde el frontend.
 
 ### Requisitos Previos
 
-[Lista cualquier software o configuración que sea necesaria para ejecutar o utilizar tu proyecto. Por ejemplo:]
+* Python 3.x
+* Django [indicar la versión de Django utilizada]
+* Otras dependencias (listadas en `requirements.txt` si existe)
 
-* [Python 3](https://www.python.org/downloads/) (versión recomendada: [indicar versión si es importante])
-* [Django](https://www.djangoproject.com/download/) (versión recomendada: [indicar versión si es importante])
-* [Otras dependencias específicas (si las hay). Puedes mencionar que las dependencias se pueden instalar con `pip install -r requirements.txt` si tienes ese archivo.]
-
-### Instalación (si aplica)
-
-[Si tu proyecto requiere una instalación específica (por ejemplo, clonar el repositorio, instalar dependencias), describe los pasos. Si es una aplicación web Django, podrías incluir:]
+### Instalación
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone [https://minhaskamal.github.io/DownGit/](https://minhaskamal.github.io/DownGit/)
+    git clone [https://github.com/sindresorhus/del](https://github.com/sindresorhus/del)
     cd EntregaFinal-Roldan
     ```
 2.  **Crea un entorno virtual (recomendado):**
     ```bash
     python -m venv venv
-    source venv/bin/activate  # En Linux/macOS
-    venv\Scripts\activate  # En Windows
+    source venv/bin/activate   # En Linux/macOS
+    venv\Scripts\activate.bat  # En Windows
     ```
 3.  **Instala las dependencias:**
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Aplica las migraciones de Django:**
+4.  **Aplica las migraciones:**
     ```bash
     python manage.py makemigrations
     python manage.py migrate
     ```
-5.  **Crea un superusuario (si es necesario para la administración):**
+5.  **Crea un superusuario (para la administración):**
     ```bash
     python manage.py createsuperuser
     ```
 
 ### Ejecución
-
-[Describe cómo ejecutar tu proyecto. Para una aplicación web Django, esto sería:]
 
 ```bash
 python manage.py runserver
